@@ -1,4 +1,3 @@
--- Active: 1748170685337@@127.0.0.1@5432@ph
 -- Selects and displays all columns and rows from the 'person_co' table.
 SELECT * FROM person_co;
 
