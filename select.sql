@@ -1,7 +1,7 @@
 -- we will practice some commands with SELECT
 -- just to explore the command we are creating this table in this way, but later we can create in a optimized way by using JOIN or Grouping strategy of table creation
 
--- creating a new table with various data
+-- Create the 'students' table for practicing SELECT queries
 CREATE TABLE students (
     student_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -13,8 +13,9 @@ CREATE TABLE students (
     dob DATE,
     blood_group VARCHAR(10),
     country VARCHAR(50)
-)
+);
 
+-- Insert sample student data
 INSERT INTO students (first_name, last_name, age, grade, course, email, dob, blood_group, country) VALUES
 ('Alice', 'Johnson', 22, 'A+', 'Computer Science', 'alice.johnson@example.com', '2002-05-14', 'O+', 'USA'),
 ('Bob', 'Smith', 24, 'B', 'Mechanical Engineering', 'bob.smith@example.com', '2000-08-30', 'A+', 'Canada'),
@@ -42,18 +43,50 @@ INSERT INTO students (first_name, last_name, age, grade, course, email, dob, blo
 ('Xander', 'Young', 20, 'C+', 'Geology', 'xander.young@example.com', '2004-03-06', 'AB-', 'USA'),
 ('Yasmin', 'Ali', 23, 'B-', 'Linguistics', 'yasmin.ali@example.com', '2001-07-27', 'A+', 'Egypt');
 
+-- Select all columns and all rows
+SELECT * FROM students;
 
-SELECT * from students
+-- Select only email and age columns
+SELECT email, age FROM students;
 
--- to see the specific data
-SELECT email, age from students
+-- Rename email column using alias
+SELECT email AS student_email FROM students;
 
--- craeting a column/row aliases while viewing
-SELECT email as student_email FROM students
+-- Alias with space in the name (quoted)
+SELECT email AS "Students Email" FROM students;
 
-SELECT email as "Students Email" from students
+-- Sort results by first name in ascending order
+SELECT * FROM students ORDER BY first_name ASC;
 
--- sorting the data while viewing
-SELECT * from students ORDER BY first_name ASC
+-- Sort results by age in descending order
+SELECT * FROM students ORDER BY age DESC;
 
-SELECT * from students ORDER BY age DESC
+-- Get unique countries (no duplicates)
+SELECT DISTINCT country FROM students;
+
+-- Get unique blood groups
+SELECT DISTINCT blood_group FROM students;
+
+-- Get all students from the USA
+SELECT * FROM students
+    WHERE country = 'USA';
+
+-- Get students who have an A+ grade and are in Computer Science
+SELECT * FROM students
+    WHERE grade = 'A+' AND course = 'Computer Science';
+
+-- Get students from either USA or Germany
+SELECT * FROM students
+    WHERE country = 'USA' OR country = 'Germany';
+
+-- Get students from USA or Germany who are 20 years old
+SELECT * FROM students
+    WHERE (country = 'USA' OR country = 'Germany') AND age = 20;
+
+-- Get students aged 20 or older
+SELECT * FROM students
+    WHERE age >= 20;
+
+-- Get students whose age is not equal to 20
+SELECT * FROM students
+    WHERE age <> 20;
