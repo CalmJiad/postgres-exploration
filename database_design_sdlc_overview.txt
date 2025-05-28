@@ -1,0 +1,193 @@
+Database Design and SDLC Overview
+This README provides a concise guide to key concepts in the Software Development Life Cycle (SDLC), database design techniques, Entity-Relationship (ER) diagram creation, database anomalies, normalization, and functional dependencies. It is intended for developers and system designers to understand and apply these principles effectively.
+Software Development Life Cycle (SDLC)
+The SDLC is a structured process for developing software systems. It consists of the following phases:
+
+Planning: Define project goals, scope, and resources.
+Analysis/Reasoning: Gather and analyze requirements.
+System Design: Create system architecture and design specifications.
+Building: Develop the system by coding and implementation.
+Testing: Verify and validate the system to ensure it meets requirements.
+Deployment/Launch: Release the system to production.
+
+Examples of SDLC Methodologies:
+
+Agile Methodology: Iterative and flexible, emphasizing collaboration and adaptability.
+Waterfall Methodology: Linear and sequential, with distinct phases.
+
+Database Design Techniques
+Database design can be approached using two primary techniques:
+
+Top-Down Technique: Design the database from scratch, starting with high-level requirements and refining into detailed schemas.
+Bottom-Up Technique: Build the database by migrating or integrating an existing system, often reverse-engineering from data sources.
+
+Creating an Entity-Relationship (ER) Diagram
+An ER diagram visually represents the database structure. Follow these steps to create one:
+Step 1: Determine Entities
+Entities represent objects like a person, place, or thing (e.g., Student, Mentor). Characteristics include:
+
+Properties or Attributes: Describe the entity (e.g., name, ID).
+Unique Identity: Each entity has a unique identifier (e.g., primary key).
+Singular Name: Use a singular noun (e.g., "Student" instead of "Students").
+Multiple Instances: Ensure the entity can have multiple data instances.
+
+Step 2: Determine Attributes for Each Entity
+Attributes describe entities and must:
+
+Be directly related to the entity.
+Be atomic (indivisible, single-valued).
+Include keys (e.g., primary or foreign keys) to identify records.
+
+Step 3: Define Relationships Among Entities
+Relationships describe connections between entities (tables). Common relationship types include:
+
+One-to-One: One record in a table links to one record in another.
+One-to-Many: One record links to multiple records in another table.
+Many-to-One: Multiple records link to one record in another table.
+Many-to-Many: Multiple records link to multiple records in another table.
+Optional One-to-One or Zero: A record may or may not link to another.
+Optional Many-to-Many: Multiple records may or may not link to others.
+
+Note: Many-to-many relationships can introduce complexity in data management. To maintain a balanced and structured database, designers often avoid them by introducing junction tables to break them into simpler relationships.
+Database Anomalies
+Anomalies are inconsistencies or issues during data manipulation or retrieval. The three main types are:
+
+Update Anomalies: Inconsistent updates due to redundant data.
+Delete Anomalies: Unintended data loss when deleting records.
+Insert Anomalies: Difficulty inserting data due to missing dependencies.
+
+Normalization
+Normalization organizes data to reduce redundancy (no duplicate data) and improve data integrity (accurate and consistent data). The most common normal forms are:
+
+0NF: Unnormalized, with repeating groups or non-atomic data.
+1NF: First Normal Form, meeting basic structural requirements.
+2NF: Second Normal Form, addressing partial dependencies.
+3NF: Third Normal Form, eliminating transitive dependencies.
+
+Rules for 1NF (First Normal Form)
+A table is in 1NF if it satisfies these rules:
+
+Atomic Values: Each cell contains a single, indivisible value.
+Unique Column Names: Columns have distinct names.
+Positional Dependency of Data: Data meaning does not depend on column order.
+Same Data Type: All values in a column are of the same type.
+Primary Key: A unique identifier is defined for each record.
+
+Rules for 2NF (Second Normal Form)
+A table is in 2NF if:
+
+It is already in 1NF.
+No non-key attribute is functionally dependent on a proper subset of a candidate key.
+
+Partial Dependency: Occurs when a non-key column depends on only part of a composite key, violating 2NF. To fix, move such columns to a separate table where they depend on a single key.
+Rules for 3NF (Third Normal Form)
+A table is in 3NF if:
+
+It is already in 2NF.
+It contains no transitive dependencies (non-key attributes depending on other non-key attributes).
+
+Functional Dependency
+A functional dependency describes a relationship where one column determines another. It is denoted as X → Y, meaning if two rows have the same value in column X, they must have the same value in column Y. For example:
+
+If t1.x = t2.x, then t1.y = t2.y.
+
+Decomposition
+Decomposition involves splitting a large table into smaller ones to improve design, often during normalization. However:
+
+Lossy Decomposition: Occurs when data is lost or corrupted upon joining tables, which should be avoided to maintain data integrity.Database Design and SDLC Overview
+This README provides a concise guide to key concepts in the Software Development Life Cycle (SDLC), database design techniques, Entity-Relationship (ER) diagram creation, database anomalies, normalization, and functional dependencies. It is intended for developers and system designers to understand and apply these principles effectively.
+Software Development Life Cycle (SDLC)
+The SDLC is a structured process for developing software systems. It consists of the following phases:
+
+Planning: Define project goals, scope, and resources.
+Analysis/Reasoning: Gather and analyze requirements.
+System Design: Create system architecture and design specifications.
+Building: Develop the system by coding and implementation.
+Testing: Verify and validate the system to ensure it meets requirements.
+Deployment/Launch: Release the system to production.
+
+Examples of SDLC Methodologies:
+
+Agile Methodology: Iterative and flexible, emphasizing collaboration and adaptability.
+Waterfall Methodology: Linear and sequential, with distinct phases.
+
+Database Design Techniques
+Database design can be approached using two primary techniques:
+
+Top-Down Technique: Design the database from scratch, starting with high-level requirements and refining into detailed schemas.
+Bottom-Up Technique: Build the database by migrating or integrating an existing system, often reverse-engineering from data sources.
+
+Creating an Entity-Relationship (ER) Diagram
+An ER diagram visually represents the database structure. Follow these steps to create one:
+Step 1: Determine Entities
+Entities represent objects like a person, place, or thing (e.g., Student, Mentor). Characteristics include:
+
+Properties or Attributes: Describe the entity (e.g., name, ID).
+Unique Identity: Each entity has a unique identifier (e.g., primary key).
+Singular Name: Use a singular noun (e.g., "Student" instead of "Students").
+Multiple Instances: Ensure the entity can have multiple data instances.
+
+Step 2: Determine Attributes for Each Entity
+Attributes describe entities and must:
+
+Be directly related to the entity.
+Be atomic (indivisible, single-valued).
+Include keys (e.g., primary or foreign keys) to identify records.
+
+Step 3: Define Relationships Among Entities
+Relationships describe connections between entities (tables). Common relationship types include:
+
+One-to-One: One record in a table links to one record in another.
+One-to-Many: One record links to multiple records in another table.
+Many-to-One: Multiple records link to one record in another table.
+Many-to-Many: Multiple records link to multiple records in another table.
+Optional One-to-One or Zero: A record may or may not link to another.
+Optional Many-to-Many: Multiple records may or may not link to others.
+
+Note: Many-to-many relationships can introduce complexity in data management. To maintain a balanced and structured database, designers often avoid them by introducing junction tables to break them into simpler relationships.
+Database Anomalies
+Anomalies are inconsistencies or issues during data manipulation or retrieval. The three main types are:
+
+Update Anomalies: Inconsistent updates due to redundant data.
+Delete Anomalies: Unintended data loss when deleting records.
+Insert Anomalies: Difficulty inserting data due to missing dependencies.
+
+Normalization
+Normalization organizes data to reduce redundancy (no duplicate data) and improve data integrity (accurate and consistent data). The most common normal forms are:
+
+0NF: Unnormalized, with repeating groups or non-atomic data.
+1NF: First Normal Form, meeting basic structural requirements.
+2NF: Second Normal Form, addressing partial dependencies.
+3NF: Third Normal Form, eliminating transitive dependencies.
+
+Rules for 1NF (First Normal Form)
+A table is in 1NF if it satisfies these rules:
+
+Atomic Values: Each cell contains a single, indivisible value.
+Unique Column Names: Columns have distinct names.
+Positional Dependency of Data: Data meaning does not depend on column order.
+Same Data Type: All values in a column are of the same type.
+Primary Key: A unique identifier is defined for each record.
+
+Rules for 2NF (Second Normal Form)
+A table is in 2NF if:
+
+It is already in 1NF.
+No non-key attribute is functionally dependent on a proper subset of a candidate key.
+
+Partial Dependency: Occurs when a non-key column depends on only part of a composite key, violating 2NF. To fix, move such columns to a separate table where they depend on a single key.
+Rules for 3NF (Third Normal Form)
+A table is in 3NF if:
+
+It is already in 2NF.
+It contains no transitive dependencies (non-key attributes depending on other non-key attributes).
+
+Functional Dependency
+A functional dependency describes a relationship where one column determines another. It is denoted as X → Y, meaning if two rows have the same value in column X, they must have the same value in column Y. For example:
+
+If t1.x = t2.x, then t1.y = t2.y.
+
+Decomposition
+Decomposition involves splitting a large table into smaller ones to improve design, often during normalization. However:
+
+Lossy Decomposition: Occurs when data is lost or corrupted upon joining tables, which should be avoided to maintain data integrity.
