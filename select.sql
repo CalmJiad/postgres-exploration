@@ -90,3 +90,58 @@ SELECT * FROM students
 -- Get students whose age is not equal to 20
 SELECT * FROM students
     WHERE age <> 20;
+-- Convert all first names to uppercase and display all columns.
+SELECT upper(first_name) AS first_name_capitalized, * FROM students;
+
+-- Concatenate first and last names into a single string (full name).
+SELECT concat(first_name, ' ', last_name) AS full_name FROM students;
+
+-- Calculate the average age of all students (returns one value).
+SELECT avg(age) AS average_age FROM students;
+
+-- Select students who are NOT from the USA and are at least 20 years old.
+SELECT * FROM students 
+    WHERE NOT country = 'USA' AND age >= 20;
+
+-- Select students where email is NULL (no email provided).
+SELECT * FROM students
+    WHERE email IS NULL;
+
+-- Display email; if it's NULL, show "email not provided" instead.
+-- COALESCE returns the first non-null value in the list.
+SELECT COALESCE(email, 'email not provided') AS email_status FROM students;
+
+-- Select students whose country is either USA or Germany.
+-- IN is a cleaner alternative to multiple OR conditions.
+SELECT * FROM students 
+    WHERE country IN('USA', 'Germany');
+
+-- Select students whose country is neither USA nor Germany.
+-- NOT IN excludes specified values.
+SELECT * FROM students
+    WHERE country NOT IN('USA', 'Germany');
+
+-- Select students aged between 19 and 22 (inclusive).
+-- BETWEEN is inclusive of both boundary values.
+SELECT * FROM students
+    WHERE age BETWEEN 19 AND 22;
+
+-- Select students born between Jan 1, 2000 and Nov 30, 2004, sorted by date of birth.
+SELECT * FROM students
+    WHERE dob BETWEEN '2000-01-01' AND '2004-11-30'
+    ORDER BY dob;
+
+-- Find students whose first name ends with 'el'.
+-- % represents any sequence of characters in a LIKE pattern.
+SELECT * FROM students
+    WHERE first_name LIKE '%el';
+
+-- Find students whose first name is exactly 4 characters and ends with 'a'.
+-- _ represents a single character in LIKE.
+SELECT * FROM students
+    WHERE first_name LIKE '___a';
+
+-- Find students whose first name ends with 'a' (case-insensitive).
+-- ILIKE is a case-insensitive version of LIKE in PostgreSQL.
+SELECT * FROM students
+    WHERE first_name ILIKE '%a';
