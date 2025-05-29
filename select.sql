@@ -153,3 +153,18 @@ SELECT * FROM students
     WHERE country IN('USA', 'Germany') LIMIT 5
 
 SELECT * FROM students LIMIT 5 OFFSET 3
+
+-- remember that in sql delete and drop cmd is very dangerous
+-- so use these commands wisely and carefully
+
+-- Deletes everything from students table with this single cmd
+DELETE FROM students
+
+SELECT * FROM students
+
+DELETE FROM students
+    WHERE grade = 'C-'
+
+UPDATE students
+    SET email = 'testing@mail.com'
+    WHERE student_id = 2
