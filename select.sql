@@ -165,6 +165,7 @@ SELECT * FROM students
 DELETE FROM students
     WHERE grade = 'C-'
 
+-- Update 
 UPDATE students
     SET email = 'testing@mail.com'
     WHERE student_id = 2
