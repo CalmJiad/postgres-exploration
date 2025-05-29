@@ -145,3 +145,11 @@ SELECT * FROM students
 -- ILIKE is a case-insensitive version of LIKE in PostgreSQL.
 SELECT * FROM students
     WHERE first_name ILIKE '%a';
+
+
+SELECT * FROM students LIMIT 10
+
+SELECT * FROM students
+    WHERE country IN('USA', 'Germany') LIMIT 5
+
+SELECT * FROM students LIMIT 5 OFFSET 3
