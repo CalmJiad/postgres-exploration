@@ -1,5 +1,5 @@
-# Treat all txt files as SQL (or any language you want)
-*.txt linguist-language=SQL
+# Mark txt files as documentation to ignore
+*.txt linguist-documentation=true
 
-# Force sql files to count as SQL (usually automatic but just in case)
+# Force SQL files as SQL language
 *.sql linguist-language=SQL
