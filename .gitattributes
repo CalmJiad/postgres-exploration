@@ -1,0 +1,5 @@
+# Treat all txt files as SQL (or any language you want)
+*.txt linguist-language=SQL
+
+# Force sql files to count as SQL (usually automatic but just in case)
+*.sql linguist-language=SQL
