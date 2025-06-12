@@ -90,3 +90,7 @@ BEGIN
    END IF;
 END
 $$;
+
+CALL remove_emp_by_id(26)
+
+SELECT * FROM newemployees
