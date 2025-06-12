@@ -58,3 +58,35 @@ $$
 $$
 
 SELECT emp_del(39)
+
+
+-- The main difference between procudure and function is procedure will do a specific task but won't return anything but function will return
+
+CREATE PROCEDURE remove_emp()
+LANGUAGE plpgsql
+AS
+$$
+BEGIN
+    DELETE FROM newemployees WHERE employee_id = 28;
+END
+$$;
+
+call remove_emp()
+
+CREATE PROCEDURE remove_emp_by_id(p_emp_id INT)
+LANGUAGE plpgsql
+AS
+$$
+DECLARE
+   found_emp_id INT;
+BEGIN
+   SELECT employee_id INTO found_emp_id FROM newemployees WHERE employee_id = p_emp_id;
+
+   IF found_emp_id IS NOT NULL THEN
+      DELETE FROM newemployees WHERE employee_id = found_emp_id;
+      RAISE NOTICE 'Employee removed successfully!';
+   ELSE
+      RAISE NOTICE 'Employee with ID % not found.', p_emp_id;
+   END IF;
+END
+$$;
